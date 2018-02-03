@@ -1,0 +1,39 @@
+version: "2.1"
+
+services:
+  coturn:
+    build: .
+    container_name: grundstil-coturn
+    network_mode: "host"
+    ports:
+      - "3389:3389/tcp"
+      - "3389:3389/udp"
+      - "53:53/udp"
+      - "53:53/tcp"
+      - "3478:3478/udp" # STUN/TURN UDP
+      - "3478:3478/tcp" # STUN/TURN TCP
+      - "3479:3479/udp" # STUN/TURN UDP Alt port (RFC5780 support)
+      - "3479:3479/tcp" # STUN/TURN TCP Alt port (RFC5780 support)
+      - "5349:5349/udp" # STUN/TURN DTLS
+      - "5349:5349/tcp" # STUN/TURN TLS
+      - "5350:5350/udp" # STUN/TURN DTLS Alt port (RFC5780 support)
+      - "5350:5350/tcp" # STUN/TURN TLS Alt port (RFC5780 support)
+      - "49152:65535/udp" # UDP media ports for TURN relay
+      - "49152:65535/tcp" # UDP media ports for TURN relay
+    environment:
+      PORT: 3389
+      ALT_PORT: 3389
+      TLS: 53
+      TLS_ALT_PORT: 53
+      MIN_PORT: 49152
+      MAX_PORT: 65535
+      STATIC_AUTH_SECRET: 
+      VIRTUAL_HOST: 
+      LETSENCRYPT: 1
+      LETSENCRYPT_EMAIL: 
+      LETSENCRYPT_HOST: 
+      REALM: 
+      JSON_CONFIG: '{"config":[]}'
+    volumes:
+      - ./log:/var/log
+
