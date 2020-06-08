@@ -18,3 +18,4 @@ There is presently support compiled in for sqlite3, redis, mysql, and postgresql
 Note: Mongo support is commented out, as it adds 130M to the image size.
 
 # docker-coturn
+ 
