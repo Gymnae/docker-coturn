@@ -2,7 +2,7 @@ FROM gymnae/alpine-base:latest
 LABEL maintainer="docker@grundstil.de" \
       tag="coturn"
 
-RUN apk add --no-cache bash coturn@community curl gettext jq
+RUN apk add --no-cache bash coturn curl gettext jq
 
 
 ADD coturn.sh /coturn.sh
