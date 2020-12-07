@@ -18,8 +18,10 @@ TURNSERVER_CONFIG=/etc/coturn/turnserver.conf
 cat <<EOF > ${TURNSERVER_CONFIG}.default
 # https://github.com/coturn/coturn/blob/master/examples/etc/coturn.conf
 listening-port=${PORT}
-listening-ip=${PUBLIC_IPV4}
-relay-ip=${PUBLIC_IPV4}
+#listening-ip=${PUBLIC_IPV4}
+#relay-ip=${PUBLIC_IPV4}
+#listening-ip=0.0.0.0
+#relay-ip=0.0.0.0
 #external-ip=${PUBLIC_IPV4}
 #min-port=${MIN_PORT}
 #max-port=${MAX_PORT}
